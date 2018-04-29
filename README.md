@@ -1,2 +1,0 @@
-# FIT-VUT-projects
-Soon..
