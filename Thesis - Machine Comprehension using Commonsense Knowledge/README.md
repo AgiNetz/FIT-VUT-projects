@@ -1,5 +1,6 @@
 # Bachelor's thesis - Machine Comprehension using Commonsense Knowledge
 This file serves as a usage manual for the "Machine Comprehension Using Commonsense Knowledge" thesis. It describes its structure and provides guidance to replication of the individual experiments described in the thesis.
+Thesis link: http://www.fit.vutbr.cz/study/DP/BP.php.cs?id=21703&file=t
 
 
 ## Project structure:
