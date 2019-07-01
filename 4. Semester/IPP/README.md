@@ -14,9 +14,9 @@ Grade: 6/6
 ## Interpreter
 Written in Python 3. Takes the XML representation of an IPPcode18 program and interprets it.  
   
-Grade: ?/8
+Grade: 7/8
 
 ## Script for automatic testing
 Written in PHP5.6. Scans a given directory and runs tests of previous 2 modules. Outputs the result summary in html format.  
   
-Grade: ?/3
+Grade: 3/3
