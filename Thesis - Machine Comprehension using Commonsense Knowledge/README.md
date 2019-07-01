@@ -4,7 +4,6 @@ Thesis link: http://www.fit.vutbr.cz/study/DP/BP.php.cs?id=21703&file=t
 
 
 ## Project structure:
-- xdanis05_thesis_source - Contains TeX source codes for the thesis report PDF.
 - Source codes - Contains python source codes
 - Source codes/Baseline - contains source codes for the stanford attentive reader baseline.
 - Source codes/BERT - contains source codes and configurations for experiments with the BERT model.
