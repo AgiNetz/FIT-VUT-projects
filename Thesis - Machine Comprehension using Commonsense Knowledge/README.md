@@ -14,8 +14,8 @@ This file serves as a usage manual for the "Machine Comprehension Using Commonse
 ### Enviroment setup
 Source code directories for both models contain a requirements.txt file that can be used to set-up a python virtual enviroment with all the dependencies the projects need. It is recommended to use separate virtual enviroments the two models. The models have been tested with python version 3.6 and 3.7. To create a separate virtual enviroment and download all the dependencies required for the model, download virtualenv package using the following command.\
 \
-```pip install virtualenv```
-\
+```pip install virtualenv```<\br>
+<\br>
 Afterwards, create a new virtual enviroment and download the dependencies using the following commands.\
 \
 *virtualenv venv\
