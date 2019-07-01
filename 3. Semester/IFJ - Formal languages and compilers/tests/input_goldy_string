@@ -1,0 +1,7 @@
+SCOPE
+
+Dim x as String = !"Shakalaka
+ty ftak"
+print x;
+
+END SCOPE

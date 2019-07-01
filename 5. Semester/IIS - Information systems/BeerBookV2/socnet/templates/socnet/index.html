@@ -1,0 +1,31 @@
+{% extends 'essentials/logged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: HTML template for the user after logging in
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block title %}Home page{% endblock %}
+{% block main_contents %}
+{% if user.is_authenticated %}
+{% if messages %}
+<ul">
+    {% for message in messages %}
+    <li>
+        {{ message }}</li>
+        {% endfor %}
+</ul>
+ {% endif %}
+
+{% include 'socnet/content_post.html' %}
+
+{% include 'socnet/feed.html' %}
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">login</a>
+{% endif %}
+
+{% endblock %}

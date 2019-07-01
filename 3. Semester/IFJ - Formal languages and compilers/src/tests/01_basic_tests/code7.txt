@@ -1,0 +1,10 @@
+Scope
+
+	if 1
+	then
+		
+	else
+		
+	end if
+
+endscope

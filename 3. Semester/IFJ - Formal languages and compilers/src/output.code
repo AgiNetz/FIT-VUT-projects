@@ -1,0 +1,118 @@
+.IFJcode17
+JUMP $$MAIN
+LABEL $$MAIN
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@_state&1
+MOVE LF@_state&1 string@first_a
+DEFVAR LF@_in&2
+MOVE LF@_in&2 string@
+READ LF@_in&2 string
+DEFVAR LF@_i&3
+MOVE LF@_i&3 int@1
+DEFVAR LF@%tmp4
+STRLEN LF@%tmp4 LF@_in&2
+DEFVAR LF@_in_len&5
+MOVE LF@_in_len&5 LF@%tmp4
+DEFVAR LF@%tmp6
+DEFVAR LF@%tmp7
+DEFVAR LF@*str_len7
+DEFVAR LF@%tmp8
+DEFVAR LF@_c&9
+DEFVAR LF@%tmp10
+DEFVAR LF@%tmp11
+DEFVAR LF@%tmp12
+DEFVAR LF@%tmp13
+DEFVAR LF@%tmp14
+DEFVAR LF@%tmp15
+DEFVAR LF@%tmp16
+DEFVAR LF@%tmp17
+DEFVAR LF@%tmp18
+DEFVAR LF@%tmp19
+DEFVAR LF@%tmp20
+LABEL $LOOP_BEGIN_1
+GT LF@%tmp6 LF@_i&3 LF@_in_len&5
+JUMPIFEQ $LOOP_END_1 LF@%tmp6 bool@true
+MOVE LF@%tmp7 int@0
+STRLEN LF@*str_len7 LF@_in&2
+PUSHS LF@_i&3
+PUSHS LF@*str_len7
+GTS
+PUSHS bool@true
+JUMPIFEQS $$asc_end2
+PUSHS LF@_in&2
+PUSHS LF@_i&3
+PUSHS int@1
+SUBS
+STRI2INTS
+POPS LF@%tmp7
+LABEL $$asc_end2
+PUSHS LF@%tmp7
+INT2CHARS
+POPS LF@%tmp8
+MOVE LF@_c&9 LF@%tmp8
+EQ LF@%tmp10 string@first_a LF@_state&1
+JUMPIFNEQ $ELSE_IF_3_1 LF@%tmp10 bool@true
+EQ LF@%tmp11 string@a LF@_c&9
+JUMPIFNEQ $ELSE_4 LF@%tmp11 bool@true
+MOVE LF@_state&1 string@a_state
+JUMP $END_IF_4
+LABEL $ELSE_4
+MOVE LF@_state&1 string@error_state
+LABEL $END_IF_4
+JUMP $END_IF_3
+LABEL $ELSE_IF_3_1
+EQ LF@%tmp12 string@a_state LF@_state&1
+JUMPIFNEQ $ELSE_IF_3_3 LF@%tmp12 bool@true
+EQ LF@%tmp13 string@a LF@_c&9
+JUMPIFNEQ $ELSE_IF_5_2 LF@%tmp13 bool@true
+MOVE LF@_state&1 string@a_state
+JUMP $END_IF_5
+LABEL $ELSE_IF_5_2
+EQ LF@%tmp14 string@b LF@_c&9
+JUMPIFNEQ $ELSE_5 LF@%tmp14 bool@true
+MOVE LF@_state&1 string@b_state
+JUMP $END_IF_5
+LABEL $ELSE_5
+MOVE LF@_state&1 string@error_state
+LABEL $END_IF_5
+JUMP $END_IF_3
+LABEL $ELSE_IF_3_3
+EQ LF@%tmp15 string@b_state LF@_state&1
+JUMPIFNEQ $ELSE_IF_3_5 LF@%tmp15 bool@true
+EQ LF@%tmp16 string@b LF@_c&9
+JUMPIFNEQ $ELSE_IF_6_4 LF@%tmp16 bool@true
+MOVE LF@_state&1 string@b_state
+JUMP $END_IF_6
+LABEL $ELSE_IF_6_4
+EQ LF@%tmp17 string@c LF@_c&9
+JUMPIFNEQ $ELSE_6 LF@%tmp17 bool@true
+MOVE LF@_state&1 string@c_state
+JUMP $END_IF_6
+LABEL $ELSE_6
+MOVE LF@_state&1 string@error_state
+LABEL $END_IF_6
+JUMP $END_IF_3
+LABEL $ELSE_IF_3_5
+EQ LF@%tmp18 string@c_state LF@_state&1
+JUMPIFNEQ $END_IF_3 LF@%tmp18 bool@true
+EQ LF@%tmp19 string@c LF@_c&9
+JUMPIFNEQ $ELSE_7 LF@%tmp19 bool@true
+MOVE LF@_state&1 string@c_state
+JUMP $END_IF_7
+LABEL $ELSE_7
+MOVE LF@_state&1 string@error_state
+LABEL $END_IF_7
+LABEL $END_IF_3
+ADD LF@%tmp20 LF@_i&3 int@1
+MOVE LF@_i&3 LF@%tmp20
+JUMP $LOOP_BEGIN_1
+LABEL $LOOP_END_1
+DEFVAR LF@%tmp21
+EQ LF@%tmp21 string@c_state LF@_state&1
+JUMPIFNEQ $ELSE_8 LF@%tmp21 bool@true
+WRITE string@Accepted\010
+JUMP $END_IF_8
+LABEL $ELSE_8
+WRITE string@Rejected\010
+LABEL $END_IF_8

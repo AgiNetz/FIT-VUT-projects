@@ -1,0 +1,9 @@
+declare function inc(a as integer) as integer
+
+scope
+
+	dim a as integer
+
+	a = inc(a)
+
+end scope

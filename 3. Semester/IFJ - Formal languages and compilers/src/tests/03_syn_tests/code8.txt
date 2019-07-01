@@ -1,0 +1,11 @@
+scope
+
+	dim a as string
+	dim b as string
+
+	a = !"hello"
+	b = !"world"
+
+	print a; !" " b; "no ok"; "/128";
+
+end scope

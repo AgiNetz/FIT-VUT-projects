@@ -1,0 +1,5 @@
+
+Scope 'Hlavni telo programu
+    Dim s as String = !"\000\001\010\255\254\138\098\189\n\t#\\"
+    print s;
+End Scope

@@ -1,0 +1,8 @@
+scope
+
+	do while
+	1
+
+	loop
+
+end scope

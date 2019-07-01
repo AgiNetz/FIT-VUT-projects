@@ -1,0 +1,7 @@
+scope
+
+	do whIle 0<>0
+		
+	loop
+
+end scope

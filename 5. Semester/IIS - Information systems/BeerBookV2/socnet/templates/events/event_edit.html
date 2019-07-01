@@ -1,0 +1,21 @@
+{% extends 'essentials/logged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: Event edit HTML template.
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+<h2>{{ form.name.value }}</h2>
+<hr />
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'socnet:event_detail' form.instance.eventid %}">Back</a>
+{% endblock %}

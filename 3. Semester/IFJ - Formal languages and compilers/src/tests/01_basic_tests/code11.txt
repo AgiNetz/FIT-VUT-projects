@@ -1,0 +1,11 @@
+Declare function n(a as integer) as integer
+Function n(a as integer) as string
+	return !"ahoj"
+end function
+
+scope
+	dim b as integer
+	dim c as integer
+	
+	c = n(a)
+end scope

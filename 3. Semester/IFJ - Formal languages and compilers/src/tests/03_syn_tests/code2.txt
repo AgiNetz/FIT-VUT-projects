@@ -1,0 +1,5 @@
+scope
+
+	dim a integer
+
+end scope

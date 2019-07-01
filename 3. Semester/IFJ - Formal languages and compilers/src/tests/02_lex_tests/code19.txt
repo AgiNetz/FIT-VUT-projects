@@ -1,0 +1,6 @@
+scope
+	dim a as double
+	
+	a = 2.0.0
+	
+end scope

@@ -1,0 +1,9 @@
+scope
+
+	dim a as double
+	a = 1
+
+	dim b as integer
+	b = 5.5
+
+end scope

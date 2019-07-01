@@ -1,0 +1,17 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: Search result HTML template.
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+<h3>Search results:</h3>
+    {% for user in user_list %}
+        {% include 'socnet/user_rep.html' %}
+        <br />
+    {% endfor %}
+
+{% endblock %}

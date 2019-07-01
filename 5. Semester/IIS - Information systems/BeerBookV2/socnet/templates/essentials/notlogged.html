@@ -1,0 +1,26 @@
+{% extends 'essentials/base.html' %}
+
+{% comment 'Initial information' %}
+   Brief: Site template when user is not logged in
+   Author: Patrik Goldschmidt, xgolds00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block body_contents %}
+   <!-- Main contents of the page. -->
+   <main>
+      <div class="container-fluid">
+         {% block main_contents %}
+         {% endblock %}
+      </div>
+   </main>
+
+   <!-- Page footer. -->
+   <footer>
+      <div class="container-fluid">
+         {% block footer_contents %}
+         {% endblock %}
+      </div>
+   </footer>
+{% endblock %}

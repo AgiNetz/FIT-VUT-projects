@@ -1,0 +1,3 @@
+scope 'podpora riadkovych komentarov
+	dim a as integer 'a dalsi
+end scope

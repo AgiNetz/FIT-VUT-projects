@@ -1,0 +1,8 @@
+scope
+
+	dim a as double
+	dim a as integer
+
+	a = inc(a)
+
+end scope

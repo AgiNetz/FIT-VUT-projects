@@ -1,0 +1,8 @@
+scope
+
+	dim a as string
+	dim b as integer
+
+	input a b
+
+end scope

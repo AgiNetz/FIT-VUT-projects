@@ -1,0 +1,8 @@
+
+scope
+
+dim s as String
+input s
+print Length(s);
+
+end scope

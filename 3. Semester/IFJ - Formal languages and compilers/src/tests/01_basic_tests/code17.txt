@@ -1,0 +1,21 @@
+'Length(s As String) As Integer
+'SubStr(s As String, i As Integer, n As Integer) As String
+'Asc(s As String, i As Integer) As Integer
+'Chr(i As Integer) As String
+
+scope
+
+	dim a as integer
+	dim s as string
+	dim b as integer
+
+	s = !"ahoj"
+	a = 2
+	b = 5
+
+	a = Length(s)
+	s = substr(s, a, b)
+	a = aSc(s, b)
+	s = chr(a)
+
+end scope

@@ -1,0 +1,29 @@
+{% extends 'essentials/logged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: HTML template for the user after logging in
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block title %}Home page{% endblock %}
+{% block main_contents %}
+
+
+
+{% if conv_messages %}
+<textarea class='pal' readonly>
+	{% for message in conv_messages %}
+        {{message}}
+	{% endfor %}
+	</textarea>
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy}}
+    <br />
+    <button type="submit">Send</button>
+</form>
+{% endblock %}

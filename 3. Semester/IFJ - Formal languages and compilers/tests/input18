@@ -1,0 +1,13 @@
+scope
+
+for i as Integer = 150 to 100 step 1
+
+dim a as Integer
+
+input a
+
+print chr(a);
+
+next i
+
+end scope

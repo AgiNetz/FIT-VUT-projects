@@ -1,0 +1,20 @@
+{% extends 'essentials/logged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User profile view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br />
+    <button type="submit">Save</button>
+</form>
+    <p><a href="{% url 'socnet:delete_user' user.identifier %}">Disable profile</a></p>
+{% endblock %}
+

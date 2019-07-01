@@ -1,0 +1,32 @@
+
+' collision normal, shared and shared
+
+dim shared promena as integer = 31
+dim shared p as string = !""
+
+function foo() as integer
+	static promena as integer = 42
+	return promena
+end function
+
+scope
+	print promena;
+	static fuckme as Double = 14.2+x
+	dim promena as integer
+	for i = 0 to 10 step 1
+		exit for
+	next
+	do until 1
+		print sth;
+	loop
+	do
+		input x
+	loop while 2
+	if x then
+		input i
+	elseif y then
+	else 
+	end if
+	promena = foo()
+	print promena;
+end scope

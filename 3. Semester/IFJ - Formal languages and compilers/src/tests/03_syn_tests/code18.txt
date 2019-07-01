@@ -1,0 +1,13 @@
+scope
+
+	dim a as integer = 1
+
+	a = (14*a)- 8+1/a
+
+	if a < 5 then
+
+	else
+
+	end if
+
+end scope

@@ -1,0 +1,39 @@
+{
+  "task": "swag",
+  "data":
+  {
+    "data_dir": "SWAG",
+    "no_dev": true,
+    "train_file": "train.csv",
+    "dev_file": "None"
+  },
+  "model": {
+    "name": "bert-large-uncased",
+    "model_dir": "swag_pretrain_large_fulltrain",
+    "find_optimal_hyperparams": false,
+    "hyperparams": {
+      "train_batch_size": 16,
+      "num_train_epochs": 3,
+      "learning_rate": 2e-05,
+      "warmup_proportion": 0.14406660586323922
+    },
+    "cv": 4,
+    "cv_scoring": "f1",
+    "max_seq_length": 128,
+    "hyperparam_space": "{'train_batch_size': hp.choice('train_batch_size', [8]), 'num_train_epochs': hp.choice('num_train_epochs', [4]),'learning_rate': hp.uniform('learning_rate', 3e-5, 8e-6),'warmup_proportion': hp.uniform('warmup_proportion', 0.10, 0.3)}",
+    "param_search_iters": 8,
+    "effective_batch_size": 2,
+    "use_pretrained": true
+  },
+  "evaluation":
+  {
+    "eval_batch_size": 8,
+    "metrics": ["accuracy"],
+    "results_file": "eval_results.txt",
+    "data":
+    {
+      "data_dir": "SWAG",
+      "val_file": "val.csv"
+    }
+  }
+}

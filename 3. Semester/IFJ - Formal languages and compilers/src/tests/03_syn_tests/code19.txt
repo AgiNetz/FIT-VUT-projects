@@ -1,0 +1,7 @@
+scope
+
+	dim a as integer
+
+	a = (14(*a))- 8+1/a
+
+end scope

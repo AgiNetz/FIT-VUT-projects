@@ -1,0 +1,9 @@
+scope
+
+	dim a as integer
+
+	a = 5
+
+	print !"ahoj, vypisujem cislo a: "; a
+
+end scope

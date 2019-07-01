@@ -1,0 +1,71 @@
+dim shared string1 as string
+dim shared string2 as string
+dim shared _string3 as string
+dim shared _double as double
+
+declare function is_digit(c as Integer) as Integer
+
+function is_digit(c as Integer) as Integer
+	if c < 48 then
+		return 0
+	end if
+	if c > 57 then
+		return 0
+	end if
+	return 1
+End function
+
+function val(str as String) as Double
+	dim l as Integer = Length(str)
+	Dim result as Double = 0
+	Dim i as Integer = 1
+	for i = 1 to l step 1
+		if Chr(Asc(str, i)) <> !"." then
+			Dim c as Integer = Asc(str, i)
+			result = result * 10
+			result = result + c
+		else
+			exit for
+		end if
+	next
+
+	if i = l+1 then
+		return result
+	end if
+
+	if i = l then
+		if Chr(Asc(str, i)) = !"." then
+			return 0
+		end if
+	end if
+
+	Dim divisor as Integer = l - i
+	for i = i+1 to l
+		Dim c as Integer = Asc(str, i)
+		if is_digit(c) = 1 then
+			result = result * 10
+			result = result + c
+		else
+			return 0.0
+		end if
+	next
+
+	for i = 0 to divisor
+		result = result / 10
+	next i
+
+	return result
+
+end function
+
+SCOPE
+   string1 = !"123.123"
+   string2 = !"123"
+   _string3 = !"123."
+   _double = val(string1)
+   print _double;!"\n";
+   _double = val(string2)
+   print _double;!"\n";
+   _double = val(_string3)
+   print _double;!"\n";
+END SCOPE

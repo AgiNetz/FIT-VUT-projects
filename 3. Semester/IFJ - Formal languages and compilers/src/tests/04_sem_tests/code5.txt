@@ -1,0 +1,23 @@
+function inc(a as integer) as integer
+
+	dim b as integer
+	b = a + 1
+	return b
+
+end function
+
+function inc(a as integer) as integer
+
+	dim b as integer
+	b = a + 1
+	return b
+
+end function
+
+scope
+
+	dim a as integer
+
+	a = inc(a)
+
+end scope

@@ -1,0 +1,17 @@
+{% extends 'socnet/view_user.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User feed view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block user_view_subsection %}
+    {% if user == form.instance %}
+        {% include 'socnet/content_post_from_profile.html' %}
+    {% endif %}
+
+    {% include 'socnet/feed.html' %}
+{% endblock %}

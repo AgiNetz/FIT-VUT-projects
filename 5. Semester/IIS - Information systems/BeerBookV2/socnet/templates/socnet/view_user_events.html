@@ -1,0 +1,36 @@
+{% extends 'socnet/view_user.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User feed view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block user_view_subsection %}
+<h4>This user is going to..</h4>
+{% for event in is_going %}
+    {% include 'events/event_rep.html' %}
+    <br />
+{% endfor %}
+<hr />
+<h4>This user is organising..</h4>
+{% for event in organising %}
+    {% include 'events/event_rep.html' %}
+    <br />
+{% endfor %}
+<hr />
+<h4>This user has gone to..</h4>
+{% for event in has_gone %}
+    {% include 'events/event_rep.html' %}
+    <br />
+{% endfor %}
+<hr />
+<h4>This user has organised..</h4>
+{% for event in has_organised %}
+    {% include 'events/event_rep.html' %}
+    <br />
+{% endfor %}
+<hr />
+{% endblock %}

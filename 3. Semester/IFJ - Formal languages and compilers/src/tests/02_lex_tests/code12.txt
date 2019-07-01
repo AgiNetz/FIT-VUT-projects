@@ -1,0 +1,6 @@
+scope
+	
+	dim s as string
+	s = !"test/053retazcov/143"
+	
+end scope

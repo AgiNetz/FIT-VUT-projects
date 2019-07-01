@@ -1,0 +1,17 @@
+'dsadjsadsajdsakdjsadsadsa
+Dim Shared x as String = !"abc"
+Dim Shared y as String = !"afg"
+Dim Shared z as Integer
+
+Scope
+
+
+	print !"abc is less than afg: "; x < y; !"\n";
+	print !"abc is less or equal than afg: "; x <= y; !"\n";
+	print !"abc is equals afg: "; x = y; !"\n";
+	print !"abc is not equals afg: "; x <> y; !"\n";
+	print !"abc is greater than afg: "; x > y; !"\n";
+	print !"abc is greater or equal than afg: "; x >= y; !"\n";
+
+
+End Scope

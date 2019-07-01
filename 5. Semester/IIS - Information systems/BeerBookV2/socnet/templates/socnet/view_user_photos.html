@@ -1,0 +1,27 @@
+{% extends 'socnet/view_user.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User photos view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block user_view_subsection %}
+{% if user == form.instance %}
+<p>
+    <a href="{% url 'socnet:upload_photo' %}">Add photo..</a>
+</p>
+{% endif %}
+{% if photos %}
+    {% for photo in photos %}
+        <img src="{{ MEDIA_URL}}{{ photo.photo }}" width="200px" height="200px"/>
+        <p>{{ photo.description }}</p>
+        <hr />
+    {% endfor %}
+{% else %}
+    <p>This user has not uploaded any photos yet.</p>
+{% endif %}
+{% endblock %}
+

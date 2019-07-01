@@ -1,0 +1,39 @@
+{
+  "task": "mcscript_no_question",
+  "data":
+  {
+    "data_dir": "MCScript",
+    "no_dev": false,
+    "train_file": "train-data.xml",
+    "dev_file": "dev-data.xml"
+  },
+  "model": {
+    "name": "bert-large-uncased",
+    "model_dir": "experiment4",
+    "find_optimal_hyperparams": false,
+    "hyperparams": {
+      "train_batch_size": 8,
+      "num_train_epochs": 4,
+      "learning_rate": 1.1328020504641886e-05,
+      "warmup_proportion": 0.14406660586323922
+    },
+    "cv": 4,
+    "cv_scoring": "f1",
+    "max_seq_length": 256,
+    "hyperparam_space": "{'train_batch_size': hp.choice('train_batch_size', [8]), 'num_train_epochs': hp.choice('num_train_epochs', [4]),'learning_rate': hp.uniform('learning_rate', 3e-5, 8e-6),'warmup_proportion': hp.uniform('warmup_proportion', 0.10, 0.3)}",
+    "param_search_iters": 8,
+    "effective_batch_size": 2,
+    "use_pretrained": true
+  },
+  "evaluation":
+  {
+    "eval_batch_size": 8,
+    "metrics": ["f1", "recall", "precision"],
+    "results_file": "eval_results.txt",
+    "data":
+    {
+      "data_dir": "MCScript",
+      "val_file": "test-data.xml"
+    }
+  }
+}

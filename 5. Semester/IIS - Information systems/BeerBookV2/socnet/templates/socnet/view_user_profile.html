@@ -1,0 +1,15 @@
+{% extends 'socnet/view_user.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User profile view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block user_view_subsection %}
+    {% for field in form %}
+<p>{{ field.label }}: {{ field.value }}</p>
+    {% endfor %}
+{% endblock %}

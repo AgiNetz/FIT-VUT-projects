@@ -1,0 +1,6 @@
+scope
+	dim a as double
+	
+	a = 5e10
+	
+end scope

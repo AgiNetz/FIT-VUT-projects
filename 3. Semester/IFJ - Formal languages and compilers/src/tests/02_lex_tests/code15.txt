@@ -1,0 +1,6 @@
+scope
+	
+	dim s as string
+	s = !"test\255retazcov \n \t \\ \" haha"
+	
+end scope

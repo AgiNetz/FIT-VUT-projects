@@ -1,0 +1,28 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: HTML template for the notification showcase
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block title %}Home page{% endblock %}
+{% block main_contents %}
+
+	<h4> Notifications </h4>
+	{% if notification_list %}
+		<ul>
+		{% for notification in notification_list %}
+			{% if notification != None %}
+				{% if notification.content_type.name == 'friendship' %}
+					<li><a href="{% url 'socnet:view_profile' notification.content_object.usr1.identifier %}"> 
+					{{notification.title}} from {{notification.content_object.usr1.email}} 
+					{% if notification.content != None %} <p>{{ notification.content }}</p> {% endif %}</a></li>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+{% endblock %}

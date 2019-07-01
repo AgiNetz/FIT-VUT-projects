@@ -1,0 +1,19 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: New event HTML template.
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block body_contents %}
+<h2>New event</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create new event</button>
+</form>
+
+<a href="{% url 'socnet:events_index' %}">Back</a>
+{% endblock %}

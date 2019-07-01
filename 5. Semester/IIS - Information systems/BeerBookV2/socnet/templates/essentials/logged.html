@@ -1,0 +1,82 @@
+{% extends 'essentials/base.html' %}
+{% load static %}
+
+{% comment 'Initial information' %}
+   Brief: Site template when user is logged in
+   Author: Patrik Goldschmidt, xgolds00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block header_contents %}
+<link rel="stylesheet" type="text/css" href={% static "style.css" %}>
+{% endblock %}
+
+{% block body_contents %}
+   <!-- Navigation toolbar. -->
+<nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top bg-dark">
+  <span class="navbar-brand mb-0 h1">LetsHang!</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#SocialNetworkToggler" aria-controls="SocialNetworkToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+   <div class="collapse navbar-collapse" id="SocialNetworkToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+         <li class="nav-item active">
+            <a class="nav-link" href="{% url 'socnet:index' %}">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{% url 'socnet:view_profile' user.identifier %}">Profile</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{% url 'socnet:conversation_view' %}">Messages</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{% url 'socnet:notifications' %}">Notifications</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+         </li>
+      </ul>
+      <form action="{% url 'socnet:search_result' %}" method="post" class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <input name="search_box" id="search_box" class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+   </div>
+</nav>
+
+{% block navigation_contents %} {% endblock %}
+   
+<!-- Page sidebar. -->
+<div class="container-fluid pt-2">
+   <div class="row">
+      <aside class="left-navbar d-none d-xl-block d-lg-block col-lg-3 col-xl-2">
+         <img src="{{user.get_profile_pic}}" class="rounded-circle mx-auto d-block" height="160" width="160">
+         <div class="text-center">
+            <h5>{{user.get_full_name}}</h5>
+         </div>
+         <nav class="collapse navbar-links">
+            <a class="navbar-click-link" href="{% url 'socnet:index' %}">
+               Explore
+            </a>
+            <a class="navbar-click-link" href="{% url 'socnet:events_index' %}">
+               Events
+            </a>
+            <a class="navbar-click-link" href="{% url 'socnet:view_friends' %}">
+               Friends
+            </a>
+         </nav>
+      </aside>
+      <!-- Main contents of the page. -->
+      <main class="main-content col-md-12 col-lg-9 col-xl-10" role="main">
+         {% block main_contents %} {% endblock %}
+      </main>
+    </div>
+</div>
+   <!-- Page footer. -->
+<footer>
+   {% block footer_contents %} {% endblock %}
+</footer>
+{% endblock %}

@@ -1,0 +1,23 @@
+scope
+    Dim a as Integer
+    Dim b as Integer
+    Dim c as Integer
+    Dim biggest as Integer
+    Input a
+    Input b
+    Input c
+    if a < b then
+        if b > c then
+            biggest = b
+        else
+            biggest = c
+        end if
+    else
+        if a > c then
+            biggest = a
+        else
+            biggest = c
+        end if
+    end if
+    print biggest;
+end scope

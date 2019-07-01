@@ -1,0 +1,6 @@
+scope
+	
+	dim s as string
+	s = !"wrong str"ing
+	
+end scope

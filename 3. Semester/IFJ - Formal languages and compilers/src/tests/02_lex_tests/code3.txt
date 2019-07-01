@@ -1,0 +1,4 @@
+/' blokovy komentar/'
+scope
+
+end scope

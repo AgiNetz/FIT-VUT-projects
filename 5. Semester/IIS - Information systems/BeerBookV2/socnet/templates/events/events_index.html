@@ -1,0 +1,34 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: Event index HTML template..
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+<h2>Events</h2><hr />
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+{% include "events/event_menu.html" %}<hr />
+<div id="event_list">
+    <h3>Current events</h3>
+    {% if event_list %}
+    <ul>
+        {% for event in event_list %}
+            {% include 'events/event_rep.html' %}
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No events are available.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

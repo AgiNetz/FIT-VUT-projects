@@ -1,0 +1,25 @@
+{% extends 'essentials/notlogged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: Singup HTML template
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{# Set page title name #}
+{% block title %}Registration{% endblock %}
+
+{% block main_contents %}
+<h1>LetsHang! registration</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn mt-3 btn-lg" type="submit">Register</button>
+</form>
+<div class="font-italic" style="margin-top: 25px;">
+   <a href="{% url 'socnet:index' %}">Back</a>
+</div>
+{% endblock %}

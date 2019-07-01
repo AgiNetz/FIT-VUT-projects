@@ -1,0 +1,46 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: User events HTML template.
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+<h2>Events</h2><hr />
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+{% include "events/event_menu.html" %}<hr />
+<div id="organising">
+    <h3>Your events</h3>
+    {% if current_events %}
+    <h4>Current events</h4>
+        {% for event in current_events %}
+            {% include 'events/event_rep.html' %}
+            <a href="{% url 'socnet:event_edit' event.eventid %}">Edit</a>&nbsp;
+            <a href="{% url 'socnet:event_delete' event.eventid %}">Delete</a>
+        {% endfor %}
+    {% endif %}
+
+    {% if past_events %}
+    <h4>Past events</h4>
+        {% for event in past_events %}
+            {% include 'events/event_rep.html' %}
+            <a href="{% url 'socnet:event_edit' event.eventid %}">Edit</a>&nbsp;
+            <a href="{% url 'socnet:event_delete' event.eventid %}">Delete</a>
+        {% endfor %}
+    {% endif %}
+
+    {% if not current_events and not past_events %}
+    <p>You have not created any events so far.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

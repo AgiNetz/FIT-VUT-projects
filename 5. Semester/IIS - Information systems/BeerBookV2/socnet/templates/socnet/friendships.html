@@ -1,0 +1,38 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: Friendships HTML template page
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+    <form method="post" action="." style="margin: 0">
+        {% csrf_token %}
+        <input  id="search_box" type="text" name="search_box" class="form-control"  placeholder="Search..." >
+        <button id="search_submit" type="submit" >Submit</button>
+    </form>
+
+    <h4>Friends</h4>
+    {% if friends_list %}
+        <ul>
+            {% for user in friends_list %}
+                {% include 'socnet/user_rep.html' %}
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p> No friends found.</p>
+    {% endif %}
+    <h4>Pending friendships</h4>
+    {% if friends_list_pending %}
+        <ul>
+            {% for user in friends_list_pending %}
+                {% include 'socnet/user_rep.html' %}
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p> No pending friendships found.</p>
+    {% endif %}
+
+{% endblock %}

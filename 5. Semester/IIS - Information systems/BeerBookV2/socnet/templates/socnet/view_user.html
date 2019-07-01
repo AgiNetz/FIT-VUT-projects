@@ -1,0 +1,48 @@
+{% extends 'essentials/logged.html' %}
+{% load crispy_forms_tags %}
+
+{% comment 'Initial information' %}
+   Brief: User profile view HTML template
+   Author: Peter Hamran, xhamra00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+    <p><img src="{{profile_pic}}" width="300px" height="300px" /></p>
+    <p>
+        {{ form.instance.get_full_name }} &emsp;
+        {% if user == form.instance %}
+            <a href="{% url 'socnet:edit_user' user.identifier %}">Edit profile</a>&emsp;
+            <a href="{% url 'socnet:delete_user' user.identifier %}">Disable profile</a>
+        {% else %}
+            {% if relationship == 'notsubscribed' %}
+                <a href="{% url 'socnet:subscribe' form.instance.identifier %}">Subscribe</a>&emsp;
+            {% else %}
+                <a href="{% url 'socnet:unsubscribe' form.instance.identifier %}">Unsubscribe</a>&emsp;
+            {% endif %}
+
+            {% if friendship %}
+                {% if friendship == 'friends' %}
+                    <a href="{% url 'socnet:unfriend' form.instance.identifier %}">Remove from Friends</a>
+                {% else %}
+                    <a href="{% url 'socnet:accept_friendship' form.instance.identifier %}">Accept friend request</a>&emsp;
+                    <a href="{% url 'socnet:cancel_friendship' form.instance.identifier %}">Cancel friend request</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'socnet:friend' form.instance.identifier %}">Add as Friend</a>
+            {% endif %}
+        {% endif %}
+    </p>
+    <hr />
+    <p>
+        <a href="{% url 'socnet:view_profile' form.instance.identifier %}">Feed</a>&emsp;
+        <a href="{% url 'socnet:user_profile' form.instance.identifier %}">Profile</a>&emsp;
+        <a href="{% url 'socnet:user_events' form.instance.identifier %}">Events</a>&emsp;
+        <a href="{% url 'socnet:user_photos' form.instance.identifier %}">Photos</a>
+    </p>
+    <hr />
+    {% block user_view_subsection %} {% endblock %}
+
+{% endblock %}
+

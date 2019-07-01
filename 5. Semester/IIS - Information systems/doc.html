@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+  -- LetsHang! - Social network project
+  --
+  -- Brief: LetsHang! is a social network platform created by information
+  --        technology students at Brno University of Technology, Faculty of
+  --        Information.  Project is part of the IIS assignment, which is a
+  --        mandatory subjects in the bachelor-level.
+  -- Authors: Peter Hamran,       xhamra00 AT stud.fit.vutbr.cz
+  --          Tomas Danis,        xdanis05 AT stud.fit.vutbr.cz
+  --          Patrik Goldschmidt, xgolds00 AT stud.fit.vutbr.cz
+  -- Date: 03.12.2018
+  -->
+  
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title>LetsHang! - Social network IIS project</title>
+   <!-- Icon source: icons8.com -->
+   <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGVSURBVGhD7ZK9SgNBGEXzHjZ5BS3U0lasBMlY+gA+gpsU1oJ/xCcI9kYUTTWrWKTUzira2KiFXSCy7sCNxXC7O/MVugcO290zH2yroaHhH7Hn/E7XlQ+F8x/1t8qrv0c2Dd2OP+ChfCKt09vyyyyQW+R16rGzeNxC5HUKVz6xQG6R16n//08WyC3yOmy8eh8mN24grxMPB9kDVOMG8jrxcJA9QDVuIK8TDwfZA1TjBvI68XCQPUA1biCvEw9bibwOG7cQeR02biHyOmzcQuR12LiFyOuwcQuR12HjFiKvw8YtRF6HjVuIvA4btxB5HTZuIfI6bNxC5HXYuIXI67BxC5HXYeMWIq/Dxi1EXoeNW4i8Dhu3EHkdNm4h8jpsPLe761fpDxgPzquX26NqcnOYzcWF41+R15kf8Do6pdGUZj2gmlxkN8sBhSvfwgFfj5c0mtI8B3T8MBxwfTKqps88nMosB/Tc3Vp9wGz+K+V0/vjVdn+GfBqKbb9RB8aF89M4mtLw+JV2/3tzabCPdENDw9+l1foBwDg2n+lmlVcAAAAASUVORK5CYII=">
+   <style type="text/css">
+      table { border-collapse: collapse; }
+      td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+      dt { font-weight: bold; margin-top: 0.5em; }
+   </style>
+</head>
+<body>
+   <h1>Social Network - IIS semestral project</h1>
+   <dl>
+      <dt><h2>Authors</h2><dt>
+      <dd> Peter Hamran
+         (<a href="mailto:xhamra00@stud.fit.vutbr.cz">xhamra00@stud.fit.vutbr.cz</a>)
+         <ul>
+            <li>Backend - user profile, session management, friendship mechanics</li>
+            <li>Python and Django server setup</li>
+         </ul>
+      </dd>
+      <dd> Tomáš Daniš
+         (<a href="mailto:xdanis05@stud.fit.vutbr.cz">xdanis05@stud.fit.vutbr.cz</a>)
+         <ul>
+            <li>Backend - event management and interaction, news feed</li>
+            <li>Agile development leader</li>
+         </ul>
+      </dd>
+      <dd> Patrik Goldschmidt
+         (<a href="mailto:xgolds00@stud.fit.vutbr.cz">xgolds00@stud.fit.vutbr.cz</a>)
+         <ul>
+            <li>Database setup and initialization</li>
+            <li>Frontend</li>
+            <li>Webserver settings and management</li>
+            <li>Documentation</li>
+         </ul>
+      </dd>
+      <dt><h2>Application location</h2></dt>
+      <dd>Deployed application:<a href="http://gold.socialnisit-iis.eu/">http://gold.socialnisit-iis.eu/</a></dd>
+      <dd>Backup development server: <a href="http://gold.socialnisit-iis.eu:13000/">http://gold.socialnisit-iis.eu:13000/</a>
+   </dl>
+   
+   <h2>Information system users for testing purposes</h2>
+   <table>
+      <tbody>
+         <tr><th>Login</th><th>Password</th><th>Role</th></tr>
+         <tr><td>admin@letshang.com</td><td>letshang</td><td>Administrator</td></tr>
+         <tr><td>user1@example.com</td><td>user1234</td><td>User</td></tr>
+         <tr><td>user2@example.com</td><td>user1234</td><td>User</td></tr>
+      </tbody>
+   </table>
+    
+   <p>In our information system, there are only 2 user roles. Since the network is "social",
+   all of the content is created and consumed by users themselves. To keep the things organized,
+   admin role is required to keep an eye on users, their behavior and especially on content
+   they create.</p>
+   <p>User role comprises regular functionality that could be expected from the social network
+   user. This regular user can create or edit own content, but content belonging to other users
+   is read-only. On the other hand, admin role has read/write access to all created content.
+   This mechanism ensures, that administrators may filter out inappropriate content created by
+   other users which may violate social network rules.</p>
+    
+   <h2>Implementation</h2>
+   <h3>Framework</h3>
+   <p>For the implementation, we have decided to utilize the web framework Django, providing
+   Python API for application layer logic programming and seamless integration of data and
+   presentation layers with the application logic. A Django project is composed of a main
+   module, defining project-wide settings and a number of apps, each providing a part of the
+   functionality of the resulting web site.</p>
+    
+   The general structure of a Django project looks like this:
+   <ul>
+      <li>project</li>
+      <ul>
+         <li>project</li>
+         <ul>
+            <li>settings.py</li>
+            <li>urls.py</li>
+         </ul>
+         <li>app1</li>
+         <ul>
+            <li>forms.py</li>
+            <li>models.py</li>
+            <li>urls.py</li>
+            <li>views.py</li>
+         </ul>
+         <li>app2</li>
+         <ul>
+            <li>forms.py</li>
+            <li>models.py</li>
+            <li>urls.py</li>
+            <li>views.py</li>
+         </ul>
+         <li>manage.py</li>
+      </ul>
+   </ul>
+    
+   <div>
+      A brief explanation of each of the .py files purpose:
+      <ul>
+         <li>
+            <p><b>project/settings.py</b> - A global settings file defining
+            project-wide settings</p>
+         </li>
+         <li>
+            <p><b>project/urls.py</b> - Defines to which app should a HTTP request be
+            forwarded to for processing based on the URL.</p>
+         </li>
+         <li>
+            <p><b>appX/forms.py</b> - Defines HTML forms for creating/updating database
+            objects</p>
+         </li>
+         <li>
+            <p><b>appX/models.py</b> - Contains data structure definition (data
+            models). For Django, this file is the single source of truth about
+            the project's data. From this file, it is possible to generate a
+            database scheme for oneof the supported database backends.</p>
+         </li>
+         <li>
+            <p><b>appX/urls.py</b> - Defines which function should process which HTTP
+            request based on the URL.</p>
+         </li>
+         <li>
+            <p><b>appX/views.py</b> - Contains functions for processing received
+            requests.</p>
+         </li>
+         <li>
+            <p><b>manage.py</b> - Django management utility. Most notably used to start
+            a new project and run a development web-server for testing purposes.</p>
+         </li>
+      </ul>
+   </div>
+   
+   <h3>Application layer</h3>
+   <p>As mentioned above, application layer is implemented using Django. For simplicity,
+   the entire functionality is contained in a single app called socnet.</p>
+   <p>Entire funcionality is split into multiple logical blocks. User authentication is handled
+   by django authentication framework. Which we subclassed to fit our needs. Whole application is 
+   logically split by URL distribution to user centric operations, event centric operations and other.</p>
+   <p>User centric operations are always rooted from users identifier. Whether its currently logged user,
+   or any other user in our site. From this point, we defined multiple actions, which logged user can
+   execute upon given root identifier. For example subscribing or friend requesting. All the data 
+   required for these operations are pulled from our database server on request.</p>
+   <p>Event centric views are a lot similar to user centric ones. But there are different operations
+   defined on top of root event id. There operations originate from our social site use case diagram.
+   For example there can be found operations like posting to event feed page, or joining an event.</p>
+   <p>Last of mentioned blocks covers operations like messaging between users, notification sending, etc.
+   These operations have usually global or wider impact on our site.</p>
+   
+   <h3>Data layer</h3>
+   <p>First step before starting the project was to convert database scheme created in subject
+   IDS to the database usable by the Django web framework. According to official documentation and
+   numerous internet sources, Django cooperates well with PostGRE SQL, so we chose this technology
+   to provide data layer for the upcoming project. However, several database reworks were required
+   during the development process. This caused the database to slightly deviate from the original
+   design created in IDS project. These deviations were based on the changing design/ideas as
+   well as requirements from the Django framework, where for example, composite foreign keys are
+   not supported.
+   
+   <h3>Presentation layer</h3>
+   For the purpose of data presentation, django models with CSS bootstrap library was used.
+
+   <h2>Installation</h2>
+      <p>PostGRE SQL database has to be initializes using attached script <i>db_init.sql</i>. This
+      script may be run with the following command.</p>
+      
+      <i>psql -h localhost -d dbv4 -U adminmaster -W -f ./db_init.sql</i>
+      
+      <p>This script creates database "socnetwork" on localhost machine using the database user
+      account <i>adminmaster</i>, which has to be created with sufficient rights on the given
+      database.</p>
+      </p>Web application itself was developed under newest Python 3.7.1. environment with Django
+      web framework version 2.1.4. Other used framework is Django Crispy forms which provide
+      enhanced Django forms.</p>
+      
+      User may use following commands to install required frameworks:
+      
+      <i>
+      pip install Django==2.1.4
+      pip install --upgrade django-crispy-forms
+      </i>
+      
+      <p>Installing a newest python version is usually not straightforward. For the purpose of this
+      project, python was instaled by compiling newest version from the source.</p>
+      
+      <p>Our submitted files contain whole Django project, so it may be run straighly using <i>manage.py</i>
+      python utility run with python environment with required libraries. This may be achieved by command:</p>
+      
+      <i>python manage.py runserver 0:port</i>
+      
+</body>
+</html>

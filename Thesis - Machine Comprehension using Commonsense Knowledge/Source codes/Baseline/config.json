@@ -1,0 +1,2 @@
+{"weights": "attread.pt", "embed_size": 100, "hidden_size": 128, "rnn_layers": 1, "dropout": 0.5, "bidir": true, "epoch_num": 4, "batch_size": 16, "learning_rate": 0.002,
+"model_path": "baseline", "dataset_dir": "MCScript"}

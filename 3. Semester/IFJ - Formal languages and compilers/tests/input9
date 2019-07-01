@@ -1,0 +1,49 @@
+'aa*bb*cc* regular language finite automata implementation
+
+scope
+    Dim state as String = !"first_a"
+    Dim in as String 
+    Input in
+    
+    Dim i as Integer = 1
+    Dim in_len as Integer = Length(in)
+    do until i > in_len
+         Dim c as String = Chr(Asc(in, i))
+         if state = !"first_a" then
+            if c = !"a" then
+                state = !"a_state"
+            else
+                state = !"error_state"
+            end if
+         elseif state = !"a_state" then
+            if c = !"a" then
+                state = !"a_state"
+            elseif c = !"b" then
+                state = !"b_state"
+            else 
+                state = !"error_state"
+            end if
+        elseif state = !"b_state" then
+            if c = !"b" then
+                state = !"b_state"
+            elseif c = !"c" then
+                state = !"c_state"
+            else
+                state = !"error_state"
+            end if
+        elseif state = !"c_state" then
+            if c = !"c" then
+                state = !"c_state"
+            else
+                state = !"error_state"
+            end if
+        end if
+    i = i+1
+    loop
+    
+    if state = !"c_state" then
+        print !"Accepted\010";
+    else
+        print !"Rejected\010";
+    end if
+end scope 

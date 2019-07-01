@@ -1,0 +1,9 @@
+{% load crispy_forms_tags %}
+
+<h4>Publish a post</h4>
+<form action="{% url 'socnet:publish_post_from_profile' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ post_content_form|crispy}}
+    <br />
+    <button type="submit">Publish</button>
+</form>

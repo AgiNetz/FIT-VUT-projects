@@ -1,0 +1,4 @@
+scope
+	dim a as integer /' deklaracia premennej
+	a = 10 + 1
+end scope

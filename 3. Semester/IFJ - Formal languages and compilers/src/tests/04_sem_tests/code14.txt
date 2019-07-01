@@ -1,0 +1,16 @@
+declare function inc(a as double) as double
+function inc(a as double) as double
+
+	dim b as double
+	b = a + 1
+	return b
+
+end function
+
+scope
+
+	dim a as integer
+
+	a = inc(a)
+
+end scope

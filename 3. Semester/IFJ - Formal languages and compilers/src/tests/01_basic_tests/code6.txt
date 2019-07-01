@@ -1,0 +1,9 @@
+Scope
+
+	If 1 then
+		
+	else
+		
+	end if
+
+End scope

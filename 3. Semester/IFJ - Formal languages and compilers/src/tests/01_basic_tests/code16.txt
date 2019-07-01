@@ -1,0 +1,7 @@
+scope
+
+	dim a as double
+	
+	a = (5 - 10/3) * 5.5 - 1 
+
+end scope

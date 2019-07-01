@@ -1,0 +1,9 @@
+
+scope
+
+dim xkl as Integer = 4
+dim ytn as Integer = 5
+
+print xklytn;
+
+end scope

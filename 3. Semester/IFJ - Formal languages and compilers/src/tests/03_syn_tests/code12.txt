@@ -1,0 +1,10 @@
+scope
+
+	dim a as integer
+	a = 1
+
+	while a
+		
+	loop
+
+end scope

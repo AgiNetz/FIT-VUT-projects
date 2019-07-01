@@ -1,0 +1,12 @@
+scope
+
+	dim a as integer
+	a = 1
+
+	if a
+		
+	else
+		
+	end if
+
+end scope

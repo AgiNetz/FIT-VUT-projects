@@ -1,0 +1,4 @@
+
+Scope 'Hlavni telo programu
+    Dim s as String = !"000\001\010\260"
+End Scope

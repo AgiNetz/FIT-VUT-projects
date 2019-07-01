@@ -1,0 +1,20 @@
+scope
+
+	dim a as double
+	a = 2.5
+	a = 2.5
+	a = 5e+10
+	a = 5e-10
+	a = 5E+10
+	a = 5E-10
+	a = 5.5e10
+
+	dim b as Integer
+	b = &b0100110
+	b = &B0101111
+	b = &o725
+	b = &O1246
+	b = &hAFBDCD1235
+	b = &HABCF599
+
+end scope

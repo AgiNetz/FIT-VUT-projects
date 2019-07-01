@@ -1,0 +1,49 @@
+{% extends 'essentials/logged.html' %}
+
+{% comment 'Initial information' %}
+   Brief: Event detail HTML template.
+   Author: Tomas Danis, xdanis00 AT stud.fit.vutbr.cz
+   Date: 01.12.2018
+   Institution: Brno University of Technology
+{% endcomment %}
+
+{% block main_contents %}
+{% load static %}
+<h2>{{ form.name.value }}</h2>
+<hr />
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+<img src="{{ photo }}" width="300px" height="300px" />
+{% if user == form.instance.createdby %}
+<p>
+    <a href="{% url 'socnet:event_edit' form.instance.eventid %}">Edit</a>&nbsp;
+    <a href="{% url 'socnet:event_delete' form.instance.eventid %}">Delete</a>
+</p>
+{% endif %}
+{% for field in form %}
+<p>{{ field.label }}: {{ field.value }}</p>
+{% endfor %}
+<br />
+
+{% if going %}
+<p>
+    You are going.<br />
+    <a href="{% url 'socnet:event_not_going' form.instance.eventid %}">I am not going</a>
+</p>
+{% else %}
+<p>
+    You are not going.<br />
+    <a href="{% url 'socnet:event_going' form.instance.eventid %}">I am going</a>
+</p>
+{% endif %}
+
+{% include 'socnet/content_post_to_event.html' with eventid=form.instance.eventid %}
+
+{% include 'socnet/feed.html' %}
+{% endblock %}

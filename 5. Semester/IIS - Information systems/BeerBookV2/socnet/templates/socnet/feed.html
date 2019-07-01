@@ -1,0 +1,34 @@
+{% if contents %}
+	{% for item,comments in contents %}
+        <hr />
+		{% if item.get_cname == "Photo" %}
+            <p><u><a href="{% url 'socnet:view_profile' item.createdby.identifier %}"><img src="{{ item.createdby.get_profile_pic }}" width="30px" height="30px" />{{item.createdby.get_full_name}}</a> 
+                has uploaded a photo to event <a href="{% url 'socnet:event_detail' item.id.content_ref.eventid %}">{{item.id.content_ref}}</a>.</u></p>
+            <p>{{item.description}}</p>
+            <p><img src="media/{{item.photo}}"/> </p> 
+        {% elif item.get_cname == "Event" %}
+            <p><u><a href="{% url 'socnet:view_profile' item.createdby.identifier %}"><img src="{{ item.createdby.get_profile_pic }}" width="30px" height="30px" />{{item.createdby.get_full_name}}</a> 
+                has created an event <a href="{% url 'socnet:event_detail' item.eventid %}">{{item}}</a>.</u></p>
+             <p>{{item.description}}</p>
+            <p><img src="{{item.get_event_photo}}"/> </p> 
+        {% elif item.get_cname == "Post" %}
+            <p><u><a href="{% url 'socnet:view_profile' item.createdby.identifier %}"><img src="{{ item.createdby.get_profile_pic }}" width="30px" height="30px" />{{item.createdby.get_full_name}}</a> 
+                has posted about event <a href="{% url 'socnet:event_detail' item.id.content_ref.eventid %}">{{item.id.content_ref}}</a>.</u></p>
+            <p>{{item.contents}}</p>
+		{% endif %}
+		{% if comments %}
+			{% for comment in comments %}
+					<p><a href="{% url 'socnet:view_profile' comment.sender.identifier%}">[{{comment.sender.first_name}} {{comment.sender.last_name}}]</a> {{comment.contents}}</p>
+			{% endfor %}
+		{% endif %}
+		{% if item.get_cname != "Event" %}
+		<form method="post" action="." style="margin: 0">
+			{% csrf_token %}
+			<input id="form_identifier" type="hidden" value="{{item.id.contentid}}" name="form_identifier"/>
+			<input id="comment_field" type="text" name="comment_field" class="form-control" placeholder="Comment...">
+			<button id="puf" type="submit" value="{{item.id.contentid}}">Submit</button>
+		</form> 
+		{% endif %}
+	{% endfor %}
+        <hr />
+{% endif %}
