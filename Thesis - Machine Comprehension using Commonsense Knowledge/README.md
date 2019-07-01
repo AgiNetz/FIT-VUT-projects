@@ -17,16 +17,17 @@ Source code directories for both models contain a requirements.txt file that can
 pip install virtualenv
 ```
 
-Afterwards, create a new virtual enviroment and download the dependencies using the following commands.\
-\
-```virtualenv venv
+Afterwards, create a new virtual enviroment and download the dependencies using the following commands.
+```
+virtualenv venv
 source venv/bin/activate
-pip install -r requirements.txt```\
-\
-For the baseline, it is also necessary to download a spacy package language model using the command.\
-\
-```python -m spacy download en```\
-\
+pip install -r requirements.txt
+```
+
+For the baseline, it is also necessary to download a spacy package language model using the command.
+
+```python -m spacy download en```
+
 ### Working with the stanford attentive reader baseline
 In the Baseline directory, a configuration file config.json is provided which has been used to train the model and obtain the results reported in the thesis. To replicate this training procedure, it is first necessary to download the MCScript dataset from http://www.sfb1102.uni-saarland.de/?page_id=2582. To use the default config file, name the directory with the dataset splits "MCScript" and place it into the Baseline directory. After that, activate the previously created virtual enviroment with the necessary dependencies and run the following command.\
 \
