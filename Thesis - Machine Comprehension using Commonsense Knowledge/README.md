@@ -18,8 +18,8 @@ Source code directories for both models contain a requirements.txt file that can
 \
 Afterwards, create a new virtual enviroment and download the dependencies using the following commands.\
 \
-```virtualenv venv\
-source venv/bin/activate\
+```virtualenv venv
+source venv/bin/activate
 pip install -r requirements.txt```\
 \
 For the baseline, it is also necessary to download a spacy package language model using the command.\
