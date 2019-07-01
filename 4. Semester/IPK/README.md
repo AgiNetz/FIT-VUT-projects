@@ -14,4 +14,4 @@ The purpose of this project was to implement a bandwidth measurement tool betwee
 which received and counted received packets. The other side ran a "prober" application which periodically flooded the network  
 with UDP packets at varying rates. Based on their rate of loss, it estimated the bandwidth.  
   
-Grade ?/20
+Grade 16/20
