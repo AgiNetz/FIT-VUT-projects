@@ -27,8 +27,8 @@ Projects from various courses I took in college
   - IFJ - Formal languages and compilers
 - 4\. Semester
   - IPK - Computer communications and networks
-    - 1. Project - Client-server app
-    - 2. Project - Bandwidth measurement tool
+    - 1\. Project - Client-server app
+    - 2\. Project - Bandwidth measurement tool
   - IPP - Principles of programming languages
 - 5\. Semester
   - IIS - Information systems
