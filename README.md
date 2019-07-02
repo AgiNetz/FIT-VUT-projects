@@ -1,6 +1,9 @@
 # FIT-VUT-projects
 Projects from various courses I took in college
 
-Highlights:
+## Highlights:
+- Thesis
+- ISA
+- IPP
 
-Navigation:
+## Navigation:
