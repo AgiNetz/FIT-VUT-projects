@@ -8,10 +8,10 @@ Projects from various courses I took in college
 - 3. Semester/IFJ - Formal languages and compilers - An implementation of a compiler for a structured language into a 3-address code (C)
 
 ## Navigation:
-- 1. Semester
+-\ 1. Semester
   - IZP
-- 2. Semester
-- 3. Semester
-- 4. Semester
-- 5. Semester
+-\ 2. Semester
+-\ 3. Semester
+-\ 4. Semester
+-\ 5. Semester
 - Thesis - Machine Comprehension using Commonsense Knowledge
