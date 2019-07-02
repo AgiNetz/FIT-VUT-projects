@@ -9,7 +9,7 @@ Projects from various courses I took in college
 
 ## Navigation:
 -  1. Semester
- - IZP
+ -- IZP
 -  2. Semester
 -  3. Semester
 -  4. Semester
