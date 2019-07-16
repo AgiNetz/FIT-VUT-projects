@@ -1,5 +1,5 @@
 # FIT-VUT-projects
-Projects from various courses I took in college
+Projects from various courses I took in college. Please note that I realise that a lot of these projects are not perfect and they do not represent the code quality I am currently capable of delivering. I am displaying them as a showcase of the sizes and types of projects I have experience with.
 
 ## Highlights:
 - *Thesis - Machine Comprehension using Commonsense Knowledge* - My Bachelor's thesis in which I implemented and experimented with a state-of-the-art question-answering system. (Python)
